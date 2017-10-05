@@ -15,14 +15,13 @@ function navToUserGeoLocation() {
 }
 
 function initSocketConnection() {
-  const serverPort = 8080;
 
   this.socketId = null;
 
   // if user is running mozilla then use it's built-in WebSocket
   window.WebSocket = window.WebSocket || window.MozWebSocket;
 
-  this.socket = new WebSocket(`ws://127.0.0.1:${serverPort}`);
+  this.socket = new WebSocket(`ws://warm-sands-41066.herokuapp.com/`);
 
   this.socket.onopen = function() {
     // socket is opened and ready to use
