@@ -50,12 +50,4 @@ wsServer.on('request', function(request) {
   connection.on('close', function() {
     //Execute something before closing the web socket
   });
-
-  function messageFactory(id, lat, lng) {
-    return {
-      id: id,
-      lat: lat,
-      lng: lng
-    };
-  }
 });

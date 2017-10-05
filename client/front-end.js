@@ -33,7 +33,7 @@ function initSocketConnection() {
   };
 
   // handle incoming message
-  this.socket.onmessage = (message) => {
+  this.socket.onmessage = message => {
     if (!JSON.parse(message.data)) {
       return;
     }
@@ -45,7 +45,11 @@ function initSocketConnection() {
     }
 
     if (oMessage.lat && oMessage.lng) {
-      L.marker([oMessage.lat, oMessage.lng]).addTo(this.map);
+      let oMarker = L.marker([oMessage.lat, oMessage.lng], {
+        title: oMessage.name
+      }).addTo(this.map);
+
+      oMarker.bindPopup(`<b>${oMessage.name || oMessage.id}</b>`).openPopup();
     }
   };
 }
@@ -88,11 +92,12 @@ function navToInitialPosition() {
   flyToPosition(defaultCoords, 6);
 }
 
-function messageFactory(id, lat, lng) {
+function messageFactory(id, lat, lng, name) {
   return {
     id: id,
     lat: lat,
-    lng: lng
+    lng: lng,
+    name: name
   };
 }
 
@@ -108,7 +113,8 @@ function addMapClick() {
     var message = this.messageFactory(
       this.socketId,
       e.latlng.lat,
-      e.latlng.lng
+      e.latlng.lng,
+      $('#input')[0].value || ''
     );
     this.socket.send(JSON.stringify(message));
   });

@@ -12,17 +12,35 @@
             margin: 0;
         }
 
+        #input {
+            float: left;
+            border: 3px solid #0075CC;
+            padding: 5px;
+            height: 20px;
+            border-radius: 5px;
+            outline: none;
+            color: #000204;
+            width: 50%;
+            position: absolute;
+            top: 5%;
+            left: 20%;
+            z-index: 2;
+            text-align: center;
+        }
+
         html,
         body,
         #mapid {
             height: 100%;
             width: 100%;
+            z-index: 1;
         }
     </style>
 </head>
 
 <body>
     <div id="mapid"></div>
+    <input id="input" type="text" placeholder="Se identifique aqui..."></input>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js">
 
     </script>
