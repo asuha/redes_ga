@@ -1,6 +1,8 @@
 ## Client
 
-Creates a web socket with the created server.
+Creates a web socket with the created server. Sends the data to all connected web pages.
+
+__OBS__ You have to open the web application in more than one tab.
 
 ## Starting the Application locally
 1. Install the dependencies (NPM or Yarn & Node.js)
