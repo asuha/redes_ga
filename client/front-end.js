@@ -21,7 +21,7 @@ function initSocketConnection() {
   // if user is running mozilla then use it's built-in WebSocket
   window.WebSocket = window.WebSocket || window.MozWebSocket;
 
-  this.socket = new WebSocket(`ws://warm-sands-41066.herokuapp.com/`);
+  this.socket = new WebSocket(`wss://warm-sands-41066.herokuapp.com/`);
 
   this.socket.onopen = function() {
     // socket is opened and ready to use
